@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root{
+
+    --black: #404040;
+    --orange: #ff7f50;
+}
+
+html{
+    font-size: 62.5%;
+}

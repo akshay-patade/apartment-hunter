@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 4%;
+    background-color: var(--black);
+    width:100%;
+    font-size: 1.2rem;
+    color: var(--orange);
+    align-items: center;
+}
+.items{
+
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.item{
+    padding: 1rem 6%; 
+    cursor: pointer;
+}
+
+
+
+
+
+
