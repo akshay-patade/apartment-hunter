@@ -1,0 +1,41 @@
+<footer>
+    <div class = "footer-contents">
+        <h1 class = "flex-item">Got a Question?</h1>
+        <h2 class = "flex-item">Contact Apartment-Hunter</h2>
+        <p class = "flex-item">We are here to help and answer any questions you might have. We look forward hearing from you</p>
+        <form #contactForm = "ngForm" class = "footer-contents">
+
+            <input class = "flex-item width-name isValid" type = "text" name = "personName"  [(ngModel)] = "personName" #name = "ngModel" placeholder="NAME" required  />
+            <div *ngIf = "name.invalid && (name.dirty || name.touched)">
+
+                <div *ngIf = "name.errors?.['required']" class = "alert">
+                    Name is required
+                </div>
+            </div>
+        
+            <input class = "flex-item width-name isValid" type = "email" name = "personEmail" [(ngModel)] = "personEmail" placeholder="EMAIL" #emailField = "ngModel" required pattern = "^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+            <div *ngIf = "emailField.invalid && (emailField.dirty || emailField.touched)">
+                <div *ngIf = "emailField.errors?.['required']" class = "alert">
+                    Email Id is required
+                </div>
+
+                <div *ngIf = "emailField.errors?.['pattern']" class = "alert">
+                    Please enter a valid email address
+                </div>
+            </div>
+
+            <textarea class = "flex-item isValid" name = "personMessage"  rows = "4" cols = "50" [(ngModel)] = "personMessage"  placeholder="MESSAGE (remember short and sweet)" #messageField = "ngModel" required minlength="4"></textarea>
+            <div *ngIf = "messageField.invalid && (messageField.dirty || messageField.touched)">
+                <div *ngIf = "messageField.errors?.['required']" class = "alert">
+                    Message is required
+                </div>
+
+                <div *ngIf = "messageField.errors?.['minlength']" class = "alert">
+                    Message length should be atleast of size 4
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    
+</footer>

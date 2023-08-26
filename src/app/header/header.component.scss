@@ -1,0 +1,38 @@
+.header{
+    background: url("../../assets/images/apartment-1.jpeg") no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+    color: var(--orange);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+}
+
+.search-box{
+
+    height: 6vh;
+    width: 70%;
+}
+
+.search-icon{
+    height: 3vh;
+    cursor: pointer;
+}
+
+
+
+
+
