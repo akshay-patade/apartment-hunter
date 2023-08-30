@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class FooterComponent{
   personEmail: string;
   personMessage: string;
   submitted = false;
+  token: string | undefined;
 
 
   constructor() {
@@ -21,7 +23,22 @@ export class FooterComponent{
     this.personName = '';
     this.personEmail = '';
     this.personMessage = '';
-
   }
 
+  public sendForm(form: NgForm): void{
+
+    if(form.invalid) {
+
+      for(const formControl of Object.keys(form.controls))
+        form.controls[formControl].markAsTouched();
+
+      return;
+    }
+
+    alert("Message sent successfully");
+
+    console.log(`Token [${this.token}] generated`);
 }
+
+}
+

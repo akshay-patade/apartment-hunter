@@ -5,9 +5,8 @@
         <p class = "flex-item">We are here to help and answer any questions you might have. We look forward hearing from you</p>
         <form #contactForm = "ngForm" class = "footer-contents">
 
-            <input class = "flex-item width-name isValid" type = "text" name = "personName"  [(ngModel)] = "personName" #name = "ngModel" placeholder="NAME" required  />
+            <input class = "flex-item width-name isValid" type = "text" name = "personName"  [(ngModel)] = "personName" #name = "ngModel" placeholder="NAME" required />
             <div *ngIf = "name.invalid && (name.dirty || name.touched)">
-
                 <div *ngIf = "name.errors?.['required']" class = "alert">
                     Name is required
                 </div>
@@ -18,7 +17,6 @@
                 <div *ngIf = "emailField.errors?.['required']" class = "alert">
                     Email Id is required
                 </div>
-
                 <div *ngIf = "emailField.errors?.['pattern']" class = "alert">
                     Please enter a valid email address
                 </div>
@@ -29,13 +27,20 @@
                 <div *ngIf = "messageField.errors?.['required']" class = "alert">
                     Message is required
                 </div>
-
                 <div *ngIf = "messageField.errors?.['minlength']" class = "alert">
                     Message length should be atleast of size 4
                 </div>
             </div>
+
+            <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required class = "flex-item isValid"></re-captcha>
+                <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="alert">
+                    <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+            </div>
+
+            <button class = "flex-item sendButton" (click) = "sendForm(contactForm)" >Send</button>  
         </form>
-        
+
+          
     </div>
     
 </footer>
